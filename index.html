@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Javascript Functions</title>
+  </head>
+
+  <body>
+    <h1>Javascript Functions Testing</h1>
+    <input id="alertButton" type="button" value="Run Alert">
+    <input id="promptButton" type="button" value="Run Enter Name Prompt">
+    <input id="consoleMessage" type="button" value="Run Console Message">
+    <input id="replaceTextButton" onclick="changeText()" type="button" value="Replace Text">
+
+    <p id="replaceText">This is just some random text that we are going to replace when you click the button.</p>
+
+    <h1>Loops</h1>
+    <p>Loops can make your code repeat!</p>
+    <p id="target"></p>
+    <input type="button" id="looper" value="Run Loop" onclick="doItAgain()">
+
+    <h1>Arrays</h1>
+    <p>Arrays are list of items.</p>
+    <p id="arrayOutput"></p>
+    <input type="button" id="arrayButton" value="Run Array">
+
+    <p id="arrayOutputOther"></p>
+    <input type="button" id="arrayButtonTwo" value="Show Camaro Only">
+  
+    <script>
+
+      document.getElementById("alertButton").onclick=function(){
+          alert("You Did It! You Clicked the Button");
+      }
+
+      document.getElementById("promptButton").onclick=function(){
+
+          let firstName = prompt("Enter Your Name");
+          alert("Hello, " + firstName);
+      }
+
+      document.getElementById("consoleMessage").onclick=function(){
+          console.log("We're Watching You! You Clicked the Button");
+      }
+
+      function changeText(){
+        var target = document.getElementById("replaceText");        
+        target.innerHTML = "You just changed the paragraph text with JavaScript!";
+      }
+
+      function doItAgain(){
+
+        for(var i = 10; i >= 0; i--){
+          
+          var target = document.getElementById("target");
+          target.innerHTML = "Count is now: " + i + "<br>" + target.innerHTML;
+
+        }
+
+        var button = document.getElementById("looper");
+        button.value = "Done Looping!";
+        button.disabled = true;
+        
+      }
+
+      document.getElementById("arrayButton").onclick=function(){
+
+        var cars = ["Corvette", " Mustang", " Camaro", " Porsche"];
+
+        document.getElementById("arrayOutput").innerHTML = cars;
+
+      }
+
+      document.getElementById("arrayButtonTwo").onclick=function(){
+
+        var cars = ["Corvette", " Mustang", " Camaro", " Porsche"];
+
+        document.getElementById("arrayOutputOther").innerHTML = cars[2];
+
+      }
+      
+      /*function doItAgain(){
+
+        var loopCount = 5;
+
+        while(loopCount > 0){
+          
+          var target = document.getElementById("target");
+          target.innerHTML = "Count is now: " + loopCount + "<br>" + target.innerHTML;
+          loopCount = loopCount -1;
+
+        }
+
+        var button = document.getElementById("looper");
+        button.value = "Done Looping!";
+        button.disabled = true;
+        
+      }*/
+
+      /*document.getElementById("looper").onclick=function(){
+          doItAgain();
+      }*/
+
+    </script>
+  </body>
+</html>
